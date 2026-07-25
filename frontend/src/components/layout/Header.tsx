@@ -31,6 +31,7 @@ export function Header({ theme, setTheme }: HeaderProps) {
       ]
     },
     { path: "/compare", label: "Compare" },
+    { path: "/discover", label: "Discover" },
     { path: "/requirements", label: "Visa Reqs" },
   ];
 

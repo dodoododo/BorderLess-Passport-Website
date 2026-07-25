@@ -39,8 +39,8 @@ function App() {
           <Route path="/" element={<Navigate to="/explore" replace />} />
           
           {/* Trang chính */}
-          {/* <Route path="/explore" element={<ExplorePage theme={theme} />} /> */}
-          <Route path="/explore" element={<FoursquareTest />} />
+          <Route path="/explore" element={<ExplorePage theme={theme} />} />
+          <Route path="/discover" element={<FoursquareTest />} />
           <Route path="/rank/global" element={<GlobalPower />} />
           <Route path="/rank/landpower" element={<LandPower />} />
           <Route path="/rank/openness" element={<Openness />} />
