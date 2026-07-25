@@ -7,10 +7,12 @@
     "types": ["vite/client"],
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
-
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
     "paths": {
+      "@api/*": ["./.api/apis/*"],
       "@/*": [
-        "./src/*"
+        "./src/*",
       ]
     },
     

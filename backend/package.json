@@ -12,6 +12,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.18.0",
   "dependencies": {
+    "@api/fsq-developers-places": "file:.api/apis/fsq-developers-places",
+    "axios": "^1.18.1",
     "cors": "^2.8.6",
     "csv-parser": "^3.2.1",
     "dotenv": "^17.4.2",

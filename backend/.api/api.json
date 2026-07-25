@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/api@7/schema.json",
+  "apis": [
+    {
+      "private": true,
+      "identifier": "fsq-developers-places",
+      "source": "@fsq-developers-places/v2025-06-17#8bcq4hmrxuudla",
+      "integrity": "sha512-Zh2q0fLYQBixe9gWVy1/CN8Xuau9BFzPFoeEi4W9yakfGmmkrG95VE3alQkHgFijZ2VCYWkMtBtwuZjdUT5eWw==",
+      "installerVersion": "7.0.0",
+      "language": "js",
+      "createdAt": "2026-07-25T10:30:19.503Z"
+    }
+  ]
+}

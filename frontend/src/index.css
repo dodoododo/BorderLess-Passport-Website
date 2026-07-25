@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @source "../src";
 @custom-variant dark (&:is(.dark *));
 
@@ -12,7 +11,11 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-
+  --font-display: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-bodoni: 'Bodoni Moda', serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-cinzel: 'Cinzel', serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -130,6 +133,66 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.035 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     background-repeat: repeat;
   }
+
+  /* 1. Trạng thái bình thường: MÁY BAY GIẤY (Paper Plane) mũi nhọn */
+  /* Tọa độ tâm click (hotspot) là 2 2 (ngay mũi máy bay) */
+  body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="%230f172a" stroke="%23ffffff" stroke-width="1.5" stroke-linejoin="round"><path d="M2 2l20 7-9 4-4 9L2 2z"/></svg>') 2 2, auto;
+  }
+
+  /* Hover: GHIM BẢN ĐỒ (Mũi nhọn cắm xuống dưới) */
+  /* Hover: GHIM BẢN ĐỒ LỘN NGƯỢC (Đỉnh nhọn hướng lên trên) */
+a, button, [role="button"], .cursor-pointer {
+  /* Tâm click đặt ở chóp nhọn phía trên: 12 1 */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ef4444" stroke="%23ffffff" stroke-width="1.5"><path d="M3 14c0-7 9-13 9-13s9 6 9 13a9 9 0 0 1-18 0z"/><circle cx="12" cy="14" r="3" fill="%23ffffff"/></svg>') 12 1, pointer !important;
+}
+
+  /* Xử lý riêng cho MapLibre (vì MapLibre dùng canvas và hay ghi đè cursor) */
+  .maplibregl-canvas-container.maplibregl-interactive,
+  .maplibregl-ctrl-group button {
+    cursor: inherit !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 1. SITE-WIDE DEFAULT SCROLLBAR */
+/* -------------------------------------------------------------------------- */
+html { 
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(15, 23, 42, 0.28) transparent; 
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { 
+  background-color: rgba(15, 23, 42, 0.28); 
+  border-radius: 999px; 
+  border: 2px solid transparent; 
+  background-clip: padding-box; 
+}
+::-webkit-scrollbar-thumb:hover { background-color: rgba(15, 23, 42, 0.45); }
+
+/* -------------------------------------------------------------------------- */
+/* 2. DOSSIER SPECIFIC SCROLLBAR */
+/* Áp dụng class .custom-scrollbar cho thẻ div cuộn nội dung trong CountryModal */
+/* -------------------------------------------------------------------------- */
+.custom-scrollbar { scrollbar-width: thin; scrollbar-color: rgb(168 162 158 / 0.5) transparent; }
+.custom-scrollbar::-webkit-scrollbar { width: 8px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgb(168 162 158 / 0.5); border-radius: 999px; border: 2px solid #FAFAF9; background-clip: padding-box; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: rgb(120 113 108 / 0.7); }
+
+/* Trong index.css */
+.nav-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+/* Áp dụng transition cho header của bác */
+header {
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Instrument-style utilities */
