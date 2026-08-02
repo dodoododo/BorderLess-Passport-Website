@@ -274,7 +274,7 @@ export function ComparePage() {
                             >
                               {iso ? (
                                 <div className="flex items-center gap-2.5 overflow-hidden">
-                                  <span className={`fi fi-${iso} text-lg rounded-[2px] shadow-sm shrink-0 leading-none`} />
+                                  <span className={`fi fi-${iso.toLowerCase()} shrink-0 block text-2xl border border-gray-500 dark:border-gray-600 leading-none !bg-cover !bg-center shadow-sm`} />
                                   <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate font-playfair tracking-tight">
                                     {getCountryName(iso)}
                                   </span>
@@ -348,7 +348,7 @@ export function ComparePage() {
                                                   : 'hover:bg-slate-100 dark:hover:bg-zinc-700/60 text-slate-700 dark:text-slate-300'
                                               }`}
                                             >
-                                              <span className={`fi fi-${rIso} text-base rounded-[2px] shadow-sm shrink-0`} />
+                                              <span className={`fi fi-${rIso.toLowerCase()} shrink-0 block text-2xl border border-gray-500 dark:border-gray-600 leading-none !bg-cover !bg-center shadow-sm`} />
                                               <span className={`truncate text-left ${isSelected ? 'font-bold' : 'font-medium font-playfair'}`}>
                                                 {getCountryName(rIso)}
                                               </span>
@@ -379,7 +379,7 @@ export function ComparePage() {
                           
                           {/* CỘT 1: CỜ VÀ TÊN NƯỚC (Theo style nghệ thuật cũ) */}
                           <div className="w-60 shrink-0 p-3 border-r border-slate-500 dark:border-zinc-800 flex items-center gap-3 overflow-hidden">
-                            <span className={`fi fi-${destIso} shrink-0 block text-[28px] border border-gray-400 dark:border-gray-600 leading-none !bg-cover !bg-center rounded-sm shadow-sm`} />
+                            <span className={`fi fi-${destIso} shrink-0 block text-[28px] border border-gray-400 dark:border-gray-600 leading-none !bg-cover !bg-center rounded-xs shadow-sm`} />
                             <span className="text-[15px] font-semibold font-playfair tracking-tight truncate dark:text-slate-100">
                               {destName}
                             </span>
@@ -629,7 +629,7 @@ export function ComparePage() {
               <div className="flex justify-between items-start p-5 border-b border-slate-100 dark:border-zinc-800">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <span className={`fi fi-${applyTarget.iso.toLowerCase()} text-2xl rounded-sm border border-slate-200`} />
+                    <span className={`fi fi-${applyTarget.iso.toLowerCase()} shrink-0 block text-2xl  border border-gray-400 dark:border-gray-600 leading-none !bg-cover !bg-center rounded-sm shadow-sm`} />
                     <h3 className="text-xl font-bold font-serif">{applyTarget.name}</h3>
                   </div>
                   <p className="text-xs text-slate-500 uppercase tracking-wide font-bold">

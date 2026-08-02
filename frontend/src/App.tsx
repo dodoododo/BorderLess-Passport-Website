@@ -9,6 +9,7 @@ import { Openness } from  "./pages/OpennessPage";
 import { PassportDetailPage } from "./pages/PassportDetailPage";
 import { ComparePage } from "./pages/ComparePage";
 import FoursquareTest  from "./pages/FoursquareTest";
+import CountryDiscover from "./pages/CountryDiscoverPage";
 // Import các trang khác trong tương lai ở đây, ví dụ:
 // import { ProfilePage } from "./pages/ProfilePage";
 
@@ -40,7 +41,7 @@ function App() {
           
           {/* Trang chính */}
           <Route path="/explore" element={<ExplorePage theme={theme} />} />
-          <Route path="/discover" element={<FoursquareTest />} />
+          <Route path="/discover" element={<CountryDiscover />} />
           <Route path="/rank/global" element={<GlobalPower />} />
           <Route path="/rank/landpower" element={<LandPower />} />
           <Route path="/rank/openness" element={<Openness />} />

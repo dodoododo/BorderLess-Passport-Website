@@ -90,12 +90,79 @@ export function Header({ theme, setTheme }: HeaderProps) {
       <Link 
         to="/explore"
         onClick={() => setIsMobileMenuOpen(false)}
-        className="group relative z-10 flex items-center font-display text-2xl font-extrabold tracking-tighter transition-transform active:scale-95"
+        className="group relative z-10 flex items-center font-display text-2xl font-extrabold tracking-tighter transition-all duration-300 active:scale-95 select-none"
       >
-        <span className="bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent transition-all group-hover:to-foreground/40">
-          BorderLess
-        </span>
-        <span className="text-blue-500">.</span>
+        <div className="relative flex items-center">
+          {/* Layer 0: La bàn, Vệt sáng & Máy bay (Nằm đè nhẹ ở góc trái bên dưới chữ) */}
+          <svg
+            className="absolute -left-3 -bottom-2.5 w-24 h-16 pointer-events-none z-0 overflow-visible"
+            viewBox="0 0 120 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              {/* Hiệu ứng phát sáng cho vệt tia máy bay */}
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+
+              {/* Gradient dải sáng nối từ la bàn đến máy bay */}
+              <linearGradient id="flightTrail" x1="15" y1="45" x2="105" y2="15">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
+                <stop offset="60%" stopColor="#60a5fa" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#93c5fd" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+
+            {/* 1. Họa tiết La Bàn cổ điển góc trái bên dưới */}
+            <g className="text-blue-500/25 transition-all duration-500 group-hover:text-blue-500/40 group-hover:rotate-12 transform-gpu origin-[18px_42px]">
+              {/* Vòng tròn la bàn */}
+              <circle cx="18" cy="42" r="14" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+              <circle cx="18" cy="42" r="10" stroke="currentColor" strokeWidth="0.5" />
+              {/* Các mũi tên nhọn la bàn */}
+              <path d="M18 24 L21 39 L36 42 L21 45 L18 60 L15 45 L0 42 L15 39 Z" fill="currentColor" />
+            </g>
+
+            {/* 2. Vệt sáng (Tia phát ra đại diện chiều đi máy bay) */}
+            <path
+              d="M 18 42 Q 55 38 100 16"
+              stroke="url(#flightTrail)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              filter="url(#glow)"
+              className="transition-all duration-500 group-hover:stroke-blue-400"
+            />
+
+            {/* 3. Máy bay đang cất cánh bay tới trước chữ Borderless */}
+            <g 
+              transform="translate(96, 10) rotate(-18)" 
+              className="text-blue-500 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+            >
+              <path
+                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                fill="currentColor"
+                transform="scale(0.55)"
+              />
+            </g>
+          </svg>
+
+          {/* Layer 10: Tên thương hiệu BorderLess */}
+          <span className="relative z-10 bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent transition-all group-hover:to-foreground/40">
+            BorderLess
+          </span>
+
+          {/* Layer 10: Mũi tên / Ghim địa điểm bản đồ (thay thế cho dấu chấm .) */}
+          <span className="relative z-10 ml-0.5 text-blue-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-110">
+            <svg
+              className="w-5 h-5 inline-block fill-current drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </span>
+        </div>
       </Link>
 
       {/* Desktop Navigation */}

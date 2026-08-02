@@ -8,7 +8,7 @@ interface PassportParams {
 }
 
 export const getVisaStatus = async (
-  req: Request<PassportParams>, 
+  req: Request<PassportParams>,
   res: Response
 ): Promise<void> => {
   const { iso, destIso } = req.params;

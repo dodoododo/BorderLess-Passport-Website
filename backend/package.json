@@ -13,6 +13,7 @@
   "packageManager": "pnpm@10.18.0",
   "dependencies": {
     "@api/fsq-developers-places": "file:.api/apis/fsq-developers-places",
+    "@google/generative-ai": "^0.24.1",
     "axios": "^1.18.1",
     "cors": "^2.8.6",
     "csv-parser": "^3.2.1",

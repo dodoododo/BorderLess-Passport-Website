@@ -1,13 +1,14 @@
 import express from 'express';
 import cors from 'cors';
+import 'dotenv/config';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import passportRoutes from './routes/passport.route.js';
 import countryRoutes from './routes/country.route.js'; // Nhét thằng em mới vào đây
 import rankingRoutes from './routes/ranking.route.js';
-import placeRoutes from './routes/place.route.js';
+// import placeRoutes from './routes/place.route.js';
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,7 +27,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/passports', passportRoutes);
 app.use('/api/countries', countryRoutes); // Bơm route country vào path /api/countries
 app.use('/api/rankings', rankingRoutes);
-app.use('/api/places', placeRoutes);
+// app.use('/api/places', placeRoutes);
 // --- KHỞI ĐỘNG SERVER ---
 
 // Kết nối DB trước khi lắng nghe request
